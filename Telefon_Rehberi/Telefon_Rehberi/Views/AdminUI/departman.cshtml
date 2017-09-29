@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Telefon_Rehberi.Departmanlar>
+
+@{
+    ViewBag.Title = "departman";
+}
+<br />
+ 
+
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartmanAdi)
+        </th>
+        <th>
+            @Html.ActionLink("Ekle", "DepartmanEkle")
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartmanAdi)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "DepartmanDuzenle", new { id = item.DepartmanId }) |
+            @Html.ActionLink("Sil", "DepartmanSil", new { id = item.DepartmanId })
+        </td>
+        <td>
+          
+        </td>
+    </tr>
+
+}
+
+</table>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Telefon_Rehberi.Calisanlar>
+
+@{
+    ViewBag.Title = "Admin Sayfası";
+}
+
+<br />
+<br />
+
+<p>
+    @Html.ActionLink("Yeni Çalışan Ekle", "CalisanEkle")
+</p>
+<p>
+    @Html.ActionLink("Şifre Değiştir", "SifreDegistir")
+</p>
+<p>
+    @Html.ActionLink("Departman Düzenle", "departman")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Adi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soyadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </th>
+        <th>
+            @Html.DisplayName("Departman")
+        </th>
+        <th>
+            @Html.DisplayName("Yönetici Bilgisi")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Adi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soyadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Departmanlar.DepartmanAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YöneticiBilgileri.YöneticiAdi)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Duzenle", new {  id=item.CalisanId}) |
+           
+            @Html.ActionLink("Sil", "sil", new {  id=item.CalisanId })
+        </td>
+    </tr>
+}
+
+</table>
