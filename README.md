@@ -1,2 +1,3 @@
 # TelefonRehberi
-şirket çalışanlarının telefonlarını ve bilgilerini gösteren web projesi
+
+web project showing company employees' phones and information
